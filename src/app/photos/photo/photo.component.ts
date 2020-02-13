@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'pg-photo',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photo.component.scss']
 })
 export class PhotoComponent implements OnInit {
+
+  @Input() title = '';
+  @Input() thumbnailUrl = '';
 
   constructor() { }
 

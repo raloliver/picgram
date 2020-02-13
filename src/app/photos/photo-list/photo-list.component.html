@@ -1,12 +1,12 @@
 <div class="container">
   <div class="my-4">
     <h1 class="text-center">PicGram</h1>
-    <p class="page-description text-center">Grid Layout With Zoom Effect</p>
+    <p class="page-description text-center">Just a list of pictures and users</p>
   </div>
   <ol class="list-unstyled">
     <li class="row no-gutters p-0">
-      <div class="col-4">
-        <pg-photo></pg-photo>
+      <div *ngFor="let photo of photos" class="col-4">
+        <pg-photo [thumbnailUrl]="photo.thumbnailUrl" [title]="photo.title"></pg-photo>
       </div>
     </li>
   </ol>

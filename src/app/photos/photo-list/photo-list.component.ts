@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PhotoService } from '../photo/photo.service';
+import { Photo } from '../photo/photo.model';
 
 @Component({
   selector: 'pg-photo-list',
@@ -8,16 +9,18 @@ import { PhotoService } from '../photo/photo.service';
 })
 export class PhotoListComponent implements OnInit {
 
+  photos: Photo[] = [];
+
   constructor(
     private photoService: PhotoService
   ) { }
 
   ngOnInit() {
-    this.loadPhotos(1, 10);
+    this.loadPhotos();
   }
 
-  loadPhotos(start: number, limit: number) {
-    this.photoService.getPhotos().subscribe(photos => console.log(photos));
+  loadPhotos() {
+    this.photoService.getPhotos().subscribe(photos => this.photos = photos);
   }
 
 }

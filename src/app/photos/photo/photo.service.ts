@@ -17,6 +17,7 @@ export class PhotoService {
   public getPhotos(): Observable<Photo[]> {
     return this.http
       .get<Photo[]>(`${API_URL}/photos`)
+      .pipe(map(res => res.slice(0, 9)))
       .pipe(take(1));
   }
 
