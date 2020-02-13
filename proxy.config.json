@@ -1,6 +1,6 @@
 {
   "/API_URL*": {
-    "target": "https://jsonplaceholder.typicode.com",
+    "target": "http://jsonplaceholder.typicode.com",
     "secure": false,
     "changeOrigin": true,
     "pathRewrite": {

@@ -17,7 +17,7 @@ export class PhotoListComponent implements OnInit {
   }
 
   loadPhotos(start: number, limit: number) {
-    this.photoService.getPhotos(start, limit).subscribe(photos => console.log(photos));
+    this.photoService.getPhotos().subscribe(photos => console.log(photos));
   }
 
 }

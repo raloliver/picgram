@@ -14,7 +14,13 @@ export class PhotoService {
 
   constructor(private http: HttpClient) { }
 
-  public getPhotos(start: number, limit: number): Observable<Photo[]> {
+  public getPhotos(): Observable<Photo[]> {
+    return this.http
+      .get<Photo[]>(`${API_URL}/photos`)
+      .pipe(take(1));
+  }
+
+  public getPhotosPaginated(start: number = 1, limit: number): Observable<Photo[]> {
     return this.http
       .get<Photo[]>(`${API_URL}/photos?_start=${start}&_limit=${limit}`)
       .pipe(take(1));
