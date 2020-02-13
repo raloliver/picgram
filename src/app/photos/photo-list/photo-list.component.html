@@ -2,7 +2,7 @@
   <div class="my-4">
     <h1 class="text-center">PicGram</h1>
     <p class="page-description text-center">
-      <pg-search></pg-search>
+      <pg-search (searching)="filter = $event" [value]="filter"></pg-search>
     </p>
   </div>
   <ol class="list-unstyled">

@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class PhotoListComponent implements OnInit {
 
   photos$: Observable<Photo[]>;
+  filter = '';
 
   constructor(
     private photoService: PhotoService

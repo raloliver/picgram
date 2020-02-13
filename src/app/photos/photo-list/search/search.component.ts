@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'pg-search',
@@ -8,7 +9,7 @@ import { Subject } from 'rxjs';
 })
 export class SearchComponent implements OnInit, OnDestroy {
 
-  @Output() search = new EventEmitter<string>();
+  @Output() searching = new EventEmitter<string>();
   @Input() value = '';
 
   debounce: Subject<string> = new Subject<string>();
@@ -16,6 +17,9 @@ export class SearchComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
+    this.debounce
+      .pipe(debounceTime(300))
+      .subscribe(filter => this.searching.emit(filter));
   }
 
   ngOnDestroy() {
