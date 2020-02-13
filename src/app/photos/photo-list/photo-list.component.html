@@ -7,7 +7,7 @@
   </div>
   <ol class="list-unstyled">
     <li class="row no-gutters p-0">
-      <div *ngFor="let photo of photos$ | async" class="col-4">
+      <div *ngFor="let photo of photos$ | async | filterByTitle: filter" class="col-4">
         <pg-photo [thumbnailUrl]="photo.thumbnailUrl" [title]="photo.title"></pg-photo>
       </div>
     </li>
