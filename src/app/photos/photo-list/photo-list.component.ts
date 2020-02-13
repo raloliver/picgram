@@ -1,5 +1,4 @@
-import { Component, OnInit, ɵrenderComponent } from '@angular/core';
-import { PhotoComponent } from '../photo/photo.component';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'pg-photo-list',
@@ -11,7 +10,6 @@ export class PhotoListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    ɵrenderComponent(PhotoComponent);
   }
 
 }
