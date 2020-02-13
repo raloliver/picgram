@@ -1,27 +1,18 @@
 # Picgram
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
+> A ideia é fazeres um página que mostre as fotos dessas apis e quando clicas numa foto vais diretamente para outra página com o perfil do utilizador.
 
-## Development server
+**Detalhes**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. Duas páginas diferentes com routing em Angular 8 IVY
+1. A página do Utilizador é um módulo á parte
+1. A directiva `*ngFor` deverá ser usada para repetir pelas fotos
+1. As fotos deverão apresentar o **thumbnailUrl e o title**; E deverão ser **um componente** á parte
+1. **Quando se clica numa foto deverás usar um pipe em RXJS para fazeres o match entre a foto -> álbum -> user e de seguida carregares a informação utilizador na outra página**
+1. A página das fotos deverá ter um filtro que filtra pelo title de cada foto
+1. No entanto a query do filtro deverá ser guardada como parâmetro do URL e deverá ser aplicado cada vez que entras na página
+1. A **página do user** deverá apenas mostrar as informação do utilizador e **ser possível voltar atrás**
+1. A página user deverá ser um módulo
+1. Deverás usar um **datepipe para mostrar a data atual cada vez que entrares na página das fotos**
+1. Para layout podes usar bootstrap [Bootstrap](https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css)
+1. **Deverás fazer unit tests em Jasmine a todo o código que fizeres**
