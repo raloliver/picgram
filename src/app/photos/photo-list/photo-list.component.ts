@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PhotoService } from '../photo/photo.service';
 import { Photo } from '../photo/photo.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'pg-photo-list',
@@ -9,7 +10,7 @@ import { Photo } from '../photo/photo.model';
 })
 export class PhotoListComponent implements OnInit {
 
-  photos: Photo[] = [];
+  photos$: Observable<Photo[]>;
 
   constructor(
     private photoService: PhotoService
@@ -20,7 +21,7 @@ export class PhotoListComponent implements OnInit {
   }
 
   loadPhotos() {
-    this.photoService.getPhotos().subscribe(photos => this.photos = photos);
+    this.photos$ = this.photoService.getPhotos();
   }
 
 }
