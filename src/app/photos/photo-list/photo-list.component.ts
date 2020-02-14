@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PhotoService } from '../photo/photo.service';
 import { Photo } from '../photo/photo.model';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'pg-photo-list',
@@ -10,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class PhotoListComponent implements OnInit {
 
-  photos$: Observable<Photo[]>;
+  currentDate: Date = new Date();
   photos: Photo[] = [];
   filter = '';
 
