@@ -4,6 +4,7 @@ import { PhotoListComponent } from './photo-list.component';
 import { PhotoModule } from '../photo/photo.module';
 import { SearchComponent } from './search/search.component';
 import { FilterByTitlePipe } from './filter-by-title.pipe';
+import { PhotosComponent } from './photos/photos.component';
 
 
 
@@ -11,7 +12,8 @@ import { FilterByTitlePipe } from './filter-by-title.pipe';
   declarations: [
     PhotoListComponent,
     SearchComponent,
-    FilterByTitlePipe
+    FilterByTitlePipe,
+    PhotosComponent
   ],
   imports: [
     CommonModule,

@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class PhotoListComponent implements OnInit {
 
   photos$: Observable<Photo[]>;
+  photos: Photo[] = [];
   filter = '';
 
   constructor(
@@ -18,11 +19,17 @@ export class PhotoListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadPhotos();
+    this.getPhotos();
   }
 
   loadPhotos() {
     this.photos$ = this.photoService.getPhotos();
+  }
+
+  getPhotos() {
+    this.photoService.getPhotos().subscribe(photos => {
+      this.photos = photos;
+    });
   }
 
 }

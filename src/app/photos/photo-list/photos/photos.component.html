@@ -1,0 +1,8 @@
+<p class="text-center text-muted" *ngIf="!photos.length">
+  Sorry, no photos
+</p>
+<ul class="list-unstyled row">
+  <li *ngFor="let photo of photos" class="col-4 no-gutters p-0">
+    <pg-photo [thumbnailUrl]="photo.thumbnailUrl" [title]="photo.title"></pg-photo>
+  </li>
+</ul>
