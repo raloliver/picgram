@@ -1,7 +1,7 @@
 <div class="container">
   <div class="my-4">
     <h1 class="text-center">PicGram</h1>
-    <p class="text-center font-weight-light">{{currentDate | date: 'd/M/y'}}</p>
+    <p class="text-center font-weight-light">Date: <strong>{{currentDate | date: 'd/M/y'}}</strong></p>
     <p class="page-description text-center">
       <pg-search (searching)="filter = $event" [value]="filter"></pg-search>
     </p>
