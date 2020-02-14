@@ -22,10 +22,6 @@ export class PhotoListComponent implements OnInit {
     this.getPhotos();
   }
 
-  loadPhotos() {
-    this.photos$ = this.photoService.getPhotos();
-  }
-
   getPhotos() {
     this.photoService.getPhotos().subscribe(photos => {
       this.photos = photos;

@@ -6,9 +6,4 @@
     </p>
   </div>
   <pg-photos [photos]="photos | filterByTitle: filter"></pg-photos>
-  <!-- <ul class="list-unstyled row" *ngIf="photos$ | async as photos">
-    <li *ngFor="let photo of photos | filterByTitle: filter" class="col-4 no-gutters p-0">
-      <pg-photo [thumbnailUrl]="photo.thumbnailUrl" [title]="photo.title"></pg-photo>
-    </li>
-  </ul> -->
 </div>
