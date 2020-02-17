@@ -10,7 +10,9 @@
         <img class="img-thumbnail card-img-top" [src]="thumbnailUrl" [alt]="title">
       </a>
       <div class="card-body">
-        <h5 *ngIf="(user$ | async) as user" class="card-title">{{user.name}}</h5>
+        <h5 *ngIf="(user$ | async) as user" class="card-title">
+          <a class="btn btn-link" (click)="goToUserProfile(user.id)">{{user.name}}</a>
+        </h5>
         <p class="card-text">{{title}}
         </p>
       </div>

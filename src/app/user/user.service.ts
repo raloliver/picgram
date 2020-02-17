@@ -14,7 +14,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public getUser(id: number): Observable<User> {
+  public getUser(id: string): Observable<User> {
     return this.http
       .get<User>(`${API_URL}/users/${id}`)
       .pipe(take(1));

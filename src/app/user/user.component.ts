@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { Observable } from 'rxjs';
+import { UserService } from './user.service';
+import { User } from './user.model';
 
 @Component({
   selector: 'pg-user',
@@ -7,9 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  user$: Observable<User>;
+
+  constructor(
+    private location: Location,
+    private route: ActivatedRoute,
+    private router: Router,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
+    this.getUserDetails(this.route.snapshot.paramMap.get('id'));
+  }
+
+  getUserDetails(id: string) {
+    this.user$ = this.userService.getUser(id);
   }
 
 }
