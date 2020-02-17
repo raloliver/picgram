@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { PhotoService } from './photo.service';
 import { Observable } from 'rxjs';
@@ -25,16 +25,11 @@ export class PhotoComponent implements OnInit {
     private photoService: PhotoService,
     private location: Location,
     private route: ActivatedRoute,
-    private router: Router,
     private userService: UserService
   ) { }
 
   ngOnInit() {
     this.route.snapshot.paramMap.get('id') ? this.getPhotoDetails(this.route.snapshot.paramMap.get('id')) : this.inPhotoDetails = false;
-  }
-
-  goToPhotoDetails(id: number) {
-    this.router.navigate([`photo/${id}`]);
   }
 
   getPhotoDetails(id: string) {
@@ -51,10 +46,6 @@ export class PhotoComponent implements OnInit {
         console.error(err);
       }
     );
-  }
-
-  goToUserProfile(id: number) {
-    this.router.navigate([`user/${id}`]);
   }
 
   goBack() {

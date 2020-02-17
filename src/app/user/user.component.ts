@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
 import { UserService } from './user.service';
@@ -17,7 +17,6 @@ export class UserComponent implements OnInit {
   constructor(
     private location: Location,
     private route: ActivatedRoute,
-    private router: Router,
     private userService: UserService
   ) { }
 
@@ -27,6 +26,10 @@ export class UserComponent implements OnInit {
 
   getUserDetails(id: string) {
     this.user$ = this.userService.getUser(id);
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }
