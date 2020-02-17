@@ -33,4 +33,10 @@ export class PhotoService {
       .get<Photo[]>(`${API_URL}/photos?_start=${start}&_limit=${limit}`)
       .pipe(take(1));
   }
+
+  public getAlbum(id: number) {
+    return this.http
+      .get(`${API_URL}/albums/${id}`)
+      .pipe(take(1));
+  }
 }

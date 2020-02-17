@@ -23,7 +23,7 @@ export class PhotoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.snapshot.paramMap.get('id') ? this.getPhotoDetails(this.route.snapshot.paramMap.get('id')) : null;
+    this.route.snapshot.paramMap.get('id') ? this.getPhotoDetails(this.route.snapshot.paramMap.get('id')) : this.inPhotoDetails = false;
   }
 
   goToPhotoDetails(id: number) {
