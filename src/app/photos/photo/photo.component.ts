@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { PhotoService } from './photo.service';
-import { Photo } from './photo.model';
 
 @Component({
   selector: 'pg-photo',
@@ -13,9 +13,11 @@ export class PhotoComponent implements OnInit {
   @Input() id: number;
   @Input() title = '';
   @Input() thumbnailUrl = '';
+  inPhotoDetails: boolean;
 
   constructor(
     private photoService: PhotoService,
+    private location: Location,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -29,6 +31,7 @@ export class PhotoComponent implements OnInit {
   }
 
   getPhotoDetails(id: string) {
+    this.inPhotoDetails = true;
     this.photoService.getPhoto(id).subscribe(
       res => {
         this.id = res.id;
@@ -38,7 +41,11 @@ export class PhotoComponent implements OnInit {
       err => {
         console.error(err);
       }
-    )
+    );
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }

@@ -1,4 +1,9 @@
 <div class="container">
+  <div class="my-4" *ngIf="inPhotoDetails">
+    <p class="text-center font-weight-light">
+      <a class="btn btn-link" (click)="goBack()">🔙 Back</a>
+    </p>
+  </div>
   <div class="row d-flex justify-content-center">
     <div class="card border-0 text-center">
       <a class="btn btn-link" (click)="goToPhotoDetails(id)">
