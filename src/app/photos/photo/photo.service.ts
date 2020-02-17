@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, take, mergeMap } from 'rxjs/operators';
 import { environment } from './../../../environments/environment';
-import { Photo, Album } from './photo.model';
+import { Photo, Album, PhotoAlbum } from './photo.model';
 
 const API_URL = environment.API_URL;
 
@@ -14,9 +14,9 @@ export class PhotoService {
 
   constructor(private http: HttpClient) { }
 
-  public getPhoto(id: string) {
+  public getPhoto(id: string): Observable<PhotoAlbum> {
     return this.http
-      .get<any>(`${API_URL}/photos?id=${id}`)
+      .get<PhotoAlbum>(`${API_URL}/photos?id=${id}`)
       .pipe(map(res => res[0]))
       .pipe(mergeMap(photo =>
         this.getAlbum(photo.albumId)

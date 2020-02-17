@@ -1,3 +1,8 @@
+export interface PhotoAlbum {
+  album: Album;
+  photo: Photo;
+}
+
 export interface Photo {
   albumId: number;
   id: number;
@@ -12,4 +17,3 @@ export interface Album {
   id: number;
   title: string;
 }
-

@@ -46,6 +46,7 @@ export class PhotoComponent implements OnInit {
         this.title = res.photo.title;
         this.thumbnailUrl = res.photo.thumbnailUrl;
         this.user$ = this.userService.getUser(res.album.userId);
+        console.log(res);
       },
       err => {
         console.error(err);
