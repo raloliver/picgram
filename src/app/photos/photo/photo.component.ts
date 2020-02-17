@@ -28,10 +28,12 @@ export class PhotoComponent implements OnInit {
     this.router.navigate([`photo/${id}`]);
   }
 
-  getPhotoDetails(id) {
+  getPhotoDetails(id: string) {
     this.photoService.getPhoto(id).subscribe(
       res => {
-        console.log(res);
+        this.id = res.id;
+        this.title = res.title;
+        this.thumbnailUrl = res.thumbnailUrl;
       },
       err => {
         console.error(err);

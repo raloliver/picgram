@@ -1,10 +1,14 @@
-<div class="card border-0 text-center mx-2">
-  <a class="btn btn-link" (click)="goToPhotoDetails(id)">
-    <img class="img-thumbnail card-img-top" [src]="thumbnailUrl" [alt]="title">
-  </a>
-  <div class="card-body">
-    <!-- <h5 class="card-title">Card title</h5> -->
-    <p class="card-text">{{title}}
-    </p>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="card border-0 text-center">
+      <a class="btn btn-link" (click)="goToPhotoDetails(id)">
+        <img class="img-thumbnail card-img-top" [src]="thumbnailUrl" [alt]="title">
+      </a>
+      <div class="card-body">
+        <!-- <h5 class="card-title">Card title</h5> -->
+        <p class="card-text">{{title}}
+        </p>
+      </div>
+    </div>
   </div>
 </div>

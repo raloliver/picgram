@@ -14,7 +14,7 @@ export class PhotoService {
 
   constructor(private http: HttpClient) { }
 
-  public getPhoto(id: number): Observable<Photo> {
+  public getPhoto(id: string): Observable<Photo> {
     return this.http
       .get<Photo>(`${API_URL}/photos?id=${id}`)
       .pipe(map(res => res[0]))
