@@ -4,6 +4,7 @@ export interface Photo {
   title: string;
   url: string;
   thumbnailUrl: string;
+  userId?: number;
 }
 
 export interface Album {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { map, take, mergeMap } from 'rxjs/operators';
 import { environment } from './../../../environments/environment';
 import { Photo, Album } from './photo.model';
 
@@ -14,10 +14,14 @@ export class PhotoService {
 
   constructor(private http: HttpClient) { }
 
-  public getPhoto(id: string): Observable<Photo> {
+  public getPhoto(id: string) {
     return this.http
-      .get<Photo>(`${API_URL}/photos?id=${id}`)
+      .get<any>(`${API_URL}/photos?id=${id}`)
       .pipe(map(res => res[0]))
+      .pipe(mergeMap(photo =>
+        this.getAlbum(photo.albumId)
+          .pipe(map(album => ({ album, photo })))
+      ))
       .pipe(take(1));
   }
 
