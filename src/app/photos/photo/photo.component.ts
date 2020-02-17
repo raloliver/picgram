@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PhotoService } from './photo.service';
+import { Photo } from './photo.model';
 
 @Component({
   selector: 'pg-photo',
@@ -13,15 +15,28 @@ export class PhotoComponent implements OnInit {
   @Input() thumbnailUrl = '';
 
   constructor(
+    private photoService: PhotoService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit() {
+    this.route.snapshot.paramMap.get('id') ? this.getPhotoDetails(this.route.snapshot.paramMap.get('id')) : null;
   }
 
   goToPhotoDetails(id: number) {
     this.router.navigate([`photo/${id}`]);
+  }
+
+  getPhotoDetails(id) {
+    this.photoService.getPhoto(id).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.error(err);
+      }
+    )
   }
 
 }
