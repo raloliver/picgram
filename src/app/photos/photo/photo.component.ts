@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'pg-photo',
@@ -7,12 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PhotoComponent implements OnInit {
 
+  @Input() id: number;
   @Input() title = '';
   @Input() thumbnailUrl = '';
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  goToPhotoDetails(id: number) {
+    this.router.navigate([`photo/${id}`]);
   }
 
 }

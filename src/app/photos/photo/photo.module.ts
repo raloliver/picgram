@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { PhotoComponent } from './photo.component';
+import { PhotoRoutingModule } from './photo-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { PhotoComponent } from './photo.component';
   declarations: [PhotoComponent],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    PhotoRoutingModule
   ],
   exports: [PhotoComponent]
 })
