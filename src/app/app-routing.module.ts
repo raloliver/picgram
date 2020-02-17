@@ -4,11 +4,10 @@ import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: PhotoListComponent
-    // loadChildren: () => import('./photos/photos.module').then(m => m.PhotosModule)
-  }
+  { path: '', component: PhotoListComponent },
+  { path: 'photo/:id', loadChildren: () => import('./photos/photo/photo.module').then(m => m.PhotoModule) },
+  { path: 'user/:id', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
+  { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({

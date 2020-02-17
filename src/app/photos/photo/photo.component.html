@@ -1,11 +1,21 @@
-<div class="card border-0 text-center mx-2">
-  <img class="img-thumbnail card-img-top" [src]="thumbnailUrl" [alt]="title">
-  <div class="card-body">
-    <!-- <h5 class="card-title">Card title</h5> -->
-    <p class="card-text">{{title}}
+<div class="container">
+  <div class="my-4" *ngIf="inPhotoDetails">
+    <p class="text-center font-weight-light">
+      <a class="btn btn-link" (click)="goBack()">← Back</a>
     </p>
   </div>
-  <!-- <div class="card-body">
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div> -->
+  <div class="row d-flex justify-content-center">
+    <div class="card border-0 text-center">
+      <a class="btn btn-link" [routerLink]="['/photo/', id]">
+        <img class="img-thumbnail card-img-top" [src]="thumbnailUrl" [alt]="title">
+      </a>
+      <div class="card-body">
+        <h5 *ngIf="(user$ | async) as user" class="card-title">
+          <a class="btn btn-primary btn-sm font-weight-bolder" [routerLink]="['/user/', user.id]">{{user.name}}</a>
+        </h5>
+        <p class="card-text">{{title}}
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
